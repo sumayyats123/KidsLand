@@ -16,18 +16,20 @@ const   StoryDisplay ({super.key});
 } 
 List<StoryModel> details =[];
 class _StoryDisplayState extends State<StoryDisplay> {
-  Future<void>fetchData()async{
-    List<StoryModel> storyDetails = await getstory();
-    setState(() {
-      details = storyDetails;
-    });
-   
+
+Future<void>fetchData()async{
+  List<StoryModel>storyDetails =await getstory();
+  setState(() {
+    details=storyDetails;
+  });
   }
-@override
-void initState() {
-   fetchData();
+
+   @override
+   void initState(){
+    fetchData();
     super.initState();
-  }
+   }
+
   @override
   
   Widget build(BuildContext context) {

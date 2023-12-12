@@ -24,7 +24,7 @@ class _DashboardPageState extends State<DashboardPage> {
   ];
   List<List<String>> storyndcartoon = [
     ["story", 'assets/images/story1.jpeg'],
-    ["Cartoon", 'assets/images/cartoon.jpeg'],
+    ["Rhymes", 'assets/images/cartoon.jpeg'],
   ];
 
   @override
@@ -80,7 +80,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(13.0),
                           child: Container(
-                            height: 200, // Set the desired height for the container
+                            height: 200,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage(imagePath),
@@ -110,7 +110,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 200, // Set the desired height for the ListView container
+                    height: 200, 
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
@@ -123,14 +123,14 @@ class _DashboardPageState extends State<DashboardPage> {
                         return InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => UserStoryDisplay(category: categoryNames)
+                              builder: (context) =>UserStoryDisplay(category: categoryNames,)
                             ));
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
                               width: 180,
-                              height: 200, // Set the desired height for each item
+                              height: 200, 
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(13.0),
                                 child: Container(

@@ -25,9 +25,9 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
   File? storyImages;
 
   String dropdown = "Story";
-  List<List<String>> categories = [
+  List<List<String>> storyndcartoon = [
     ['Story'],
-    ['Cartoons'],
+    ['Rhymes'],
     
   ];
 
@@ -71,7 +71,7 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                             dropdown = newValue!;
                           });
                         },
-                        items: categories.map<DropdownMenuItem<String>>(
+                        items: storyndcartoon.map<DropdownMenuItem<String>>(
                           (List<String> value) {
                             return DropdownMenuItem<String>(
                               value: value[0],

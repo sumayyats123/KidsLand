@@ -3,15 +3,15 @@ import 'package:hive/hive.dart';
 import 'package:kidsland/model/storie_model.dart';
 
 Future<void> addstory(StoryModel value) async {
-  final storyDB = await Hive.openBox<StoryModel>('story');
+  final storyDB =await Hive.openBox<StoryModel>('story');
   await storyDB.add(value);
 }
 
 Future<List<StoryModel>> getstory() async {
   final storyDB = await Hive.openBox<StoryModel>('story');
   return storyDB.values.toList();
-}
-
+}    
+      
 Future<int> getstoryKey(StoryModel storytogetkey) async {
   final storyDB = await Hive.openBox<StoryModel>('story');
   final key =
