@@ -37,54 +37,66 @@ final audioplayer = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: FileImage(File(widget.wordsforkids.imageUrl)),
+      body: Container(
+          decoration: BoxDecoration(
+           gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFFc9ffd8),
+              Color(0xFF94b9ff),
+            ]
+           )
+          ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 300,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: FileImage(File(widget.wordsforkids.imageUrl)),
+                  ),
                 ),
               ),
-            ),
-            Center(
-              child: Text(
-                widget.wordsforkids.words,
-                style: TextStyle(fontSize: 40),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: FileImage(File(widget.wordsforkids.alphabets)),
+              Center(
+                child: Text(
+                  widget.wordsforkids.words,
+                  style: TextStyle(fontSize: 40),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            CircleAvatar(
-              backgroundColor: Colors.red,
-              radius: 35,
-              child: IconButton(
-                icon: Icon(
-                 isPlaying ?Icons.pause : Icons.play_arrow
+              Container(
+                width: double.infinity,
+                height: 300,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: FileImage(File(widget.wordsforkids.alphabets)),
+                  ),
                 ),
-                iconSize: 50,
-                onPressed: () async {
-                  if (isPlaying) {
-                    await audioplayer.pause();
-                  } else {
-                    await audioplayer.play(DeviceFileSource(audio!));
-                  }
-                },
               ),
-            )
-          ],
+              SizedBox(
+                height: 30,
+              ),
+              CircleAvatar(
+                backgroundColor: Colors.red,
+                radius: 35,
+                child: IconButton(
+                  icon: Icon(
+                   isPlaying ?Icons.pause : Icons.play_arrow
+                  ),
+                  iconSize: 50,
+                  onPressed: () async {
+                    if (isPlaying) {
+                      await audioplayer.pause();
+                    } else {
+                      await audioplayer.play(DeviceFileSource(audio!));
+                    }
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

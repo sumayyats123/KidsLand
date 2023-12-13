@@ -72,7 +72,7 @@ audioplayer.onPositionChanged.listen((p) {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.file(
-                  File(widget.storyforkids.storyUrl), // Ensure this is not null
+                  File(widget.storyforkids.storyUrl), 
                   width: double.infinity,
                   height: 500,
                   fit: BoxFit.cover,

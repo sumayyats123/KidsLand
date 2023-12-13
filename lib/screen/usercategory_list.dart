@@ -15,16 +15,16 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   List<List<String>> list = [
-    ['Alphabets', 'assets/images/abcd.jpeg'],
-    ['Numbers', 'assets/images/123.jpg'],
-    ['Shapes', 'assets/images/shape1.png'],
-    ['Colours', 'assets/images/colour1.jpg'],
-    ['Animals', 'assets/images/animal1.jpeg'],
-    ['Bodyparts', 'assets/images/body1.png'],
+    ['Alphabets', 'assets/images/ccc.jpg'],
+    ['Numbers', 'assets/images/45.jpg'],
+    ['Shapes', 'assets/images/shsh.png'],
+    ['Colours', 'assets/images/color.jpg'],
+    ['Animals', 'assets/images/an.jpg'],
+    ['Bodyparts','assets/images/bp.jpg'],
   ];
   List<List<String>> storyndcartoon = [
-    ["story", 'assets/images/story1.jpeg'],
-    ["Rhymes", 'assets/images/cartoon.jpeg'],
+    ["Story", 'assets/images/sg.avif'],
+    ["Rhymes",'assets/images/cute.jpg'],
   ];
 
   @override
@@ -34,16 +34,16 @@ class _DashboardPageState extends State<DashboardPage> {
         appBar: AppBar(
           title: Text(
             'Welcome ${widget.name}',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-          backgroundColor: Colors.red,
+          backgroundColor: Color.fromRGBO(185, 4, 13, 1),
           actions: [
             IconButton(
               onPressed: () {
                 showLogoutConfirmationDialog();
               },
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
             )
           ],
         ),
@@ -56,8 +56,8 @@ class _DashboardPageState extends State<DashboardPage> {
                 GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 20,
+                    mainAxisSpacing:10,
+                    crossAxisSpacing:0,
                     childAspectRatio: 1 / 0.95,
                   ),
                   shrinkWrap: true,
@@ -76,7 +76,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         ));
                       },
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(9.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(13.0),
                           child: Container(
@@ -91,12 +91,13 @@ class _DashboardPageState extends State<DashboardPage> {
                               padding: const EdgeInsets.only(top: 98, left: 7),
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 45, left: 35),
+                                    const EdgeInsets.only(top:54, left: 45),
                                 child: Text(
                                   categoryName,
                                   style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    color: Color.fromARGB(255, 148, 131, 131),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 182, 16, 4),
                                   ),
                                 ),
                               ),
@@ -105,12 +106,12 @@ class _DashboardPageState extends State<DashboardPage> {
                         ),
                       ),
                     );
-                  },
+                  }, 
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 200, 
+                  child: Container(  
+                    height: 200 , 
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
@@ -127,10 +128,10 @@ class _DashboardPageState extends State<DashboardPage> {
                             ));
                           },
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all( 9.0  ),
                             child: SizedBox(
-                              width: 180,
-                              height: 200, 
+                              width:180, 
+                              height: 200,    
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(13.0),
                                 child: Container(
@@ -145,13 +146,14 @@ class _DashboardPageState extends State<DashboardPage> {
                                         const EdgeInsets.only(top: 98, left: 7),
                                     child: Padding(
                                       padding:
-                                          const EdgeInsets.only(top: 45, left: 35),
+                                          const EdgeInsets.only(top: 45, left: 45),
                                       child: Text(
                                         categoryNames,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 15,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
                                           color:
-                                              Color.fromARGB(255, 148, 131, 131),
+                                            Color.fromARGB(255, 182, 16, 4),
                                         ),
                                       ),
                                     ),
@@ -178,14 +180,14 @@ class _DashboardPageState extends State<DashboardPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Logout Confirmation'),
-          content: Text('Do you want to logout?'),
+          title: const Text('Logout Confirmation'),
+          content: const Text('Do you want to logout?'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
@@ -197,7 +199,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   (route) => false,
                 );
               },
-              child: Text('Logout'),
+              child: const Text('Logout'),
             ),
           ],
         );
