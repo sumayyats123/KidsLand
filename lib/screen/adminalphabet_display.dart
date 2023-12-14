@@ -4,6 +4,7 @@ import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/screen/admin_Screen.dart';
 import 'package:kidsland/screen/adminalphabet_details.dart';
+import 'package:kidsland/screen/admincategory_ist.dart';
 import 'package:kidsland/screen/logosreen.dart';
 
 
@@ -35,12 +36,12 @@ void initState() {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Alphabets',style: TextStyle(fontSize: 25),),
+          title: const Text('Alphabet Model',style: TextStyle(fontSize: 25),),
           backgroundColor: Colors.red,
           centerTitle: true,
            actions: const [Icon(Icons.text_rotation_none_outlined),SizedBox(width: 20,)],
         leading: InkWell(onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LogoScreen()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoryList()));
         },
           child: const Icon(Icons.arrow_back)),
            

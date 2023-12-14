@@ -27,15 +27,15 @@ class _Welcome_screenState extends State<Welcome_screen> {
           const Text(
             'Welcome',
             style: TextStyle(
-                fontSize: 40, fontWeight: FontWeight.w700, color: Colors.red),
+                fontSize: 40, fontWeight: FontWeight.w700, color: Colors.red,fontFamily:'Poppins'),
           ),
           const Text(
             'Shining Star',
             style: TextStyle(
-                fontSize: 25, fontWeight: FontWeight.w600, color: Colors.red),
+                fontSize: 25, fontWeight: FontWeight.w600, color: Colors.red,fontFamily:'Poppins'),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(40.0),   
             child: TextField(
               controller: namecontroller,
               decoration: const InputDecoration(
@@ -64,11 +64,13 @@ class _Welcome_screenState extends State<Welcome_screen> {
                   },
                   child: const Row(
                     children: [
-                      Text(
-                        'adminlogin',
-                        style: TextStyle(fontSize: 15, color: Colors.red),
-                      ),
-                    ],
+                       Padding( 
+                         padding: EdgeInsets.only(left:25), 
+                         child: Text(
+                          'Adminlogin',
+                          style: TextStyle(fontSize:10, color: Colors.black45,fontWeight: FontWeight.bold),
+                                             ),
+                       )],
                   ),
                 ),
                 InkWell(
@@ -81,7 +83,8 @@ class _Welcome_screenState extends State<Welcome_screen> {
                           ));  namecontroller.clear();
                     },
                     child: const CircleAvatar(
-                      child: Icon(Icons.turn_right,),backgroundColor: Colors.red,
+                      radius:40,
+                      child: Icon(Icons.home,size:30,),backgroundColor: Colors.red,
                     ))
               ],
             ),

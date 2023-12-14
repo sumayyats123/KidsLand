@@ -229,7 +229,7 @@ class _AdminScreenState extends State<AdminScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Add New Category'),
+          title: const Text('Add New Category'),
           content: TextField(
             onChanged: (value) {
               newCategory = value;
@@ -240,7 +240,7 @@ class _AdminScreenState extends State<AdminScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
@@ -254,7 +254,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   // You may want to show an error message or handle it appropriately
                 }
               },
-              child: Text('Add'),
+              child: const Text('Add'),
             ),
           ],
         );

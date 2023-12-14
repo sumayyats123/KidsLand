@@ -42,7 +42,7 @@ Future<void>fetchData()async{
           centerTitle: true,
            actions: const [Icon(Icons.text_rotation_none_outlined),SizedBox(width: 20,)],
         leading: InkWell(onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LogoScreen()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const LogoScreen()));
         },
           child: const Icon(Icons.arrow_back)),
            
@@ -123,8 +123,7 @@ Future<void>fetchData()async{
                                                           key);
                                                       setState(() {fetchData();});
                                                       Navigator.of(context)
-                                                          .pop();
-                                                          
+                                                          .pop();   
                                                     },
                                                     child: const Text("Ok"))
                                               ],
@@ -148,7 +147,7 @@ Future<void>fetchData()async{
       floatingActionButton: FloatingActionButton(onPressed: ()async 
       {Navigator.of(context).push(MaterialPageRoute(builder: (context) => AdminStoryScreen(),));
         
-      },child: Icon(Icons.add),),
+      },child: const Icon(Icons.add),),
       
       ),
     );

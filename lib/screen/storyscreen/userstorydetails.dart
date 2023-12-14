@@ -65,67 +65,69 @@ audioplayer.onPositionChanged.listen((p) {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(50.0),
-          child: Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.file(
-                  File(widget.storyforkids.storyUrl), 
-                  width: double.infinity,
-                  height: 500,
-                  fit: BoxFit.cover,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.file(
+                    File(widget.storyforkids.storyUrl), 
+                    width: double.infinity,
+                    height: 500,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              SizedBox(height: 32),
-              Center(
-                child: Column(
-                  children: [
-                    Text(
-                      widget.storyforkids.words,
-                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                    ),
-                    Slider(
-                      min: 0,
-                      max: duration.inMilliseconds.toDouble(),
-                      value: position.inMilliseconds.toDouble(),
-                      onChanged: (value) async {
-                        await audioplayer.seek(Duration(milliseconds: value.toInt()));
-                      },
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(formatTime(position)),
-                          Text(formatTime(duration - position)),
-                        ],
+                const SizedBox(height: 32),
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        widget.storyforkids.words,
+                        style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                       ),
-                    )
-                  ],
+                      Slider(
+                        min: 0,
+                        max: duration.inMilliseconds.toDouble(),
+                        value: position.inMilliseconds.toDouble(),
+                        onChanged: (value) async {
+                          await audioplayer.seek(Duration(milliseconds: value.toInt()));
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(formatTime(position)),
+                            Text(formatTime(duration - position)),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              CircleAvatar(
-                backgroundColor: Colors.red,
-                radius: 35,
-                child: IconButton(
-                  icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
-                  iconSize: 50,
-                  onPressed: () async {
-                    if (isPlaying) {
-                      await audioplayer.pause();
-                    } else {
-                      await audioplayer.play(DeviceFileSource(audio!));
-                    }
-                  },
+                const SizedBox(
+                  height: 30,
                 ),
-              )
-            ],
+                CircleAvatar(
+                  backgroundColor: Colors.red,
+                  radius: 35,
+                  child: IconButton(
+                    icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+                    iconSize: 50,
+                    onPressed: () async {
+                      if (isPlaying) {
+                        await audioplayer.pause();
+                      } else {
+                        await audioplayer.play(DeviceFileSource(audio!));
+                      }
+                    },
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
