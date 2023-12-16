@@ -10,6 +10,7 @@ class AdminLogin extends StatefulWidget {
   @override
   State<AdminLogin> createState() => _AdminLoginState();
 
+  // ignore: non_constant_identifier_names
   AdminLoginState() {}
 }
 

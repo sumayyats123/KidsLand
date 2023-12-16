@@ -164,6 +164,7 @@ class _AdminScreenState extends State<AdminScreen> {
                           list: dropdown,
                         );
                         await addAlphabet(details);
+                        // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
                             builder: (context) => const AlphabetDisplay(),
@@ -245,9 +246,7 @@ class _AdminScreenState extends State<AdminScreen> {
                     categories.add([newCategory]);
                   });
                   Navigator.of(context).pop();
-                } else {
-                  
-                }
+                } else {}
               },
               child: const Text('Add'),
             ),

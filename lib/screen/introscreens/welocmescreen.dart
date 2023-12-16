@@ -58,9 +58,7 @@ class _Welcome_screenState extends State<Welcome_screen> {
               children: [
                 InkWell(
                   onTap: () async {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const AdminLogin(),
-                    ));
+                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const AdminLogin(),), (route) => false);
                   },
                   child: const Row(
                     children: [
@@ -77,11 +75,8 @@ class _Welcome_screenState extends State<Welcome_screen> {
                     onTap: () async {
                       await shared_preferences.setname(namecontroller.text);
                       // ignore: use_build_context_synchronously
-                      Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                DashboardPage(name: namecontroller.text),
-                          ));  namecontroller.clear();
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => DashboardPage(name: namecontroller.text),), (route) => false);
+                          namecontroller.clear();
                     },
                     child: const CircleAvatar(
                       radius:40,backgroundColor: Colors.red,
