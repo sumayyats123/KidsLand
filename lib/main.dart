@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/model/storie_model.dart';
-import 'package:kidsland/screen/usercategory_list.dart';
+import 'package:kidsland/screen/user/usercategory_list.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:kidsland/screen/logosreen.dart';
+import 'package:kidsland/screen/introscreens/logosreen.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
 
 

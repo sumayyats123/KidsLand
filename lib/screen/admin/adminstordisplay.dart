@@ -2,9 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_stories.dart';
 import 'package:kidsland/model/storie_model.dart';
-import 'package:kidsland/screen/logosreen.dart';
-import 'package:kidsland/screen/storyscreen/adminstordetails.dart';
-import 'package:kidsland/screen/storyscreen/adminstoryscreen.dart';
+import 'package:kidsland/screen/introscreens/logosreen.dart';
+import 'package:kidsland/screen/admin/adminstordetails.dart';
+import 'package:kidsland/screen/admin/adminstoryscreen.dart';
 
 
 
@@ -122,6 +122,7 @@ Future<void>fetchData()async{
                                                       deleatestoryItem(
                                                           key);
                                                       setState(() {fetchData();});
+                                                      // ignore: use_build_context_synchronously
                                                       Navigator.of(context)
                                                           .pop();   
                                                     },
@@ -145,7 +146,7 @@ Future<void>fetchData()async{
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: ()async 
-      {Navigator.of(context).push(MaterialPageRoute(builder: (context) => AdminStoryScreen(),));
+      {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AdminStoryScreen(),));
         
       },child: const Icon(Icons.add),),
       

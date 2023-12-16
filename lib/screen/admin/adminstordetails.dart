@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kidsland/database/functions/db_stories.dart';
 import 'package:kidsland/model/storie_model.dart';
-import 'package:kidsland/screen/storyscreen/adminstordisplay.dart';
+import 'package:kidsland/screen/admin/adminstordisplay.dart';
 
 
 class StoryDetails extends StatefulWidget {
@@ -67,7 +67,7 @@ class _StoryDetailsState extends State<StoryDetails> {
                                 selectedImage = pickedImage;
                               });
                             },
-                            icon: Icon(Icons.add_a_photo),
+                            icon: const Icon(Icons.add_a_photo),
                           )
                         : null,
                   ),
@@ -98,7 +98,7 @@ class _StoryDetailsState extends State<StoryDetails> {
                       final audio = await pickAndPlayAudio(context);
                       audioFilePath = audio;
                     },
-                    child: Text('Update Audio'),
+                    child: const Text('Update Audio'),
                   ),
                   const SizedBox(
                     height: 20,
@@ -125,9 +125,10 @@ class _StoryDetailsState extends State<StoryDetails> {
                         int key = getkeyofupdatestory(widget.storyDetails);
                         await updatestory(details, key);
 
+                        // ignore: use_build_context_synchronously
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => StoryDisplay(),
+                            builder: (context) => const StoryDisplay(),
                           ),
                         );
                       }

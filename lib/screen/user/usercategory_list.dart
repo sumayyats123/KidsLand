@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kidsland/screen/logosreen.dart';
-import 'package:kidsland/screen/storyscreen/userstorydisplay.dart';
-import 'package:kidsland/screen/useralphabet_display.dart';
+import 'package:kidsland/screen/introscreens/logosreen.dart';
+import 'package:kidsland/screen/user/userstorydisplay.dart';
+import 'package:kidsland/screen/user/useralphabet_display.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -33,7 +33,7 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Welcome ${widget.name}',
+            'Welcome  ${widget.name}',
             style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
@@ -43,7 +43,7 @@ class _DashboardPageState extends State<DashboardPage> {
               onPressed: () {
                 showLogoutConfirmationDialog();
               },
-              icon: const Icon(Icons.close),
+              icon: const Icon(Icons.power_settings_new),
             )
           ],
         ),
@@ -108,7 +108,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     style: GoogleFonts.poppins(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromARGB(255, 182, 16, 4),
+                                      color: const Color.fromARGB(255, 182, 16, 4),
                                     ),
                                   ),
                                 ),
@@ -121,7 +121,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(  
+                    child: SizedBox(  
                       height: 200 , 
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
@@ -164,7 +164,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             color:
-                                              Color.fromARGB(255, 182, 16, 4),
+                                              const Color.fromARGB(255, 182, 16, 4),
                                           ),
                                         ),
                                       ),
@@ -206,7 +206,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 shared_preferences.setname('');
                 Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
-                    builder: (context) => LogoScreen(),
+                    builder: (context) => const LogoScreen(),
                   ),
                   (route) => false,
                 );

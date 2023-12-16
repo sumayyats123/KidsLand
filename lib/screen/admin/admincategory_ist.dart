@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kidsland/screen/adminalphabet_display.dart';
-import 'package:kidsland/screen/logosreen.dart';
-import 'package:kidsland/screen/storyscreen/adminstordisplay.dart';
+import 'package:kidsland/screen/admin/adminalphabet_display.dart';
+import 'package:kidsland/screen/introscreens/logosreen.dart';
+import 'package:kidsland/screen/admin/adminstordisplay.dart';
 
 
 
@@ -49,7 +49,7 @@ class _CategoryListState extends State<CategoryList> {
             child: SizedBox(height: 100,width: 100, 
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => StoryDisplay(),));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const StoryDisplay(),));
                 }, child: const CircleAvatar(
                 radius: 10,
                backgroundColor: Colors.red,
@@ -65,8 +65,8 @@ class _CategoryListState extends State<CategoryList> {
           ), const SizedBox(height: 50,),
           ElevatedButton(style:ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.red) ),
            onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LogoScreen()));
-          }, child:Icon(
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const LogoScreen()));
+          }, child:const Icon(
                   Icons.power_settings_new, 
                   size: 50,
                   color: Colors.white,

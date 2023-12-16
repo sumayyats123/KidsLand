@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
-import 'package:kidsland/screen/adminalphabet_display.dart';
+import 'package:kidsland/screen/admin/adminalphabet_display.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
@@ -104,12 +104,9 @@ class _AdminScreenState extends State<AdminScreen> {
                           },
                         ).toList(),
                       ),
-
-                      // Add icon button
                       IconButton(
                         icon: const Icon(Icons.add),
                         onPressed: () {
-                          // Call a function to add a new category
                           _addNewCategory();
                         },
                       ),
@@ -176,7 +173,6 @@ class _AdminScreenState extends State<AdminScreen> {
                       } else {
                         print('error ');
                         print(selectImage!.path);
-                        // print(audiofilePath!);
                         print(wordsController.text);
                       }
                     },
@@ -250,8 +246,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   });
                   Navigator.of(context).pop();
                 } else {
-                  // Handle case where the entered category is empty
-                  // You may want to show an error message or handle it appropriately
+                  
                 }
               },
               child: const Text('Add'),

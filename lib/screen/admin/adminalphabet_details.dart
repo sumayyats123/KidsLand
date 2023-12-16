@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
-import 'package:kidsland/screen/adminalphabet_display.dart';
+import 'package:kidsland/screen/admin/adminalphabet_display.dart';
 
 
 class ShowDetailsScreen extends StatefulWidget {
@@ -36,6 +36,7 @@ class _ShowDetailsScreenState extends State<ShowDetailsScreen> {
    audiofilePath=(widget.appDetails.audioFile);
   _listController =TextEditingController(text: widget.appDetails.list);
   }
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold( body: Padding(
@@ -64,7 +65,7 @@ class _ShowDetailsScreenState extends State<ShowDetailsScreen> {
                         setState(() {
                           selectedImage=pickedimage;
                         });
-                       }, icon: Icon(Icons.add_a_photo))
+                       }, icon: const Icon(Icons.add_a_photo))
                        :null),
                 const SizedBox(
                   height: 30,
@@ -111,7 +112,7 @@ class _ShowDetailsScreenState extends State<ShowDetailsScreen> {
                     final audio =await pickAndPlayAudio(context);
                     audiofilePath=audio;
                   },
-                 child: Text('Update Audio')),
+                 child: const Text('Update Audio')),
                 const SizedBox(
                   height: 20,
                 ),
@@ -137,7 +138,7 @@ class _ShowDetailsScreenState extends State<ShowDetailsScreen> {
       print(details);
       
          await updateAlphabetData(); 
-         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AlphabetDisplay(),));
+         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AlphabetDisplay(),));
     }
   },
   child: const Text(

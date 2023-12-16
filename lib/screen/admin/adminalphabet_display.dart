@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
-import 'package:kidsland/screen/admin_Screen.dart';
-import 'package:kidsland/screen/adminalphabet_details.dart';
-import 'package:kidsland/screen/admincategory_ist.dart';
-import 'package:kidsland/screen/logosreen.dart';
+import 'package:kidsland/screen/admin/admin_Screen.dart';
+import 'package:kidsland/screen/admin/adminalphabet_details.dart';
+import 'package:kidsland/screen/admin/admincategory_ist.dart';
+
 
 
 
@@ -41,7 +41,7 @@ void initState() {
           centerTitle: true,
            actions: const [Icon(Icons.text_rotation_none_outlined),SizedBox(width: 20,)],
         leading: InkWell(onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoryList()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const CategoryList()));
         },
           child: const Icon(Icons.arrow_back)),
            
@@ -145,9 +145,9 @@ void initState() {
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: ()async 
-      {Navigator.of(context).push(MaterialPageRoute(builder: (context) => AdminScreen(),));
+      {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AdminScreen(),));
         
-      },child: Icon(Icons.add),),
+      },child: const Icon(Icons.add),),
       
       ),
     );

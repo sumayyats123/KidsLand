@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 
 class Alphabetdetails extends StatefulWidget {
-  Alphabetdetails({Key? key, required this.wordsforkids}) : super(key: key);
+  const Alphabetdetails({Key? key, required this.wordsforkids}) : super(key: key);
 
   final WordsForKids wordsforkids;
 

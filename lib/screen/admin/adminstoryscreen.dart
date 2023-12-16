@@ -7,7 +7,7 @@ import 'package:kidsland/model/storie_model.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kidsland/screen/storyscreen/adminstordisplay.dart';
+import 'package:kidsland/screen/admin/adminstordisplay.dart';
 
 class AdminStoryScreen extends StatefulWidget {
   const AdminStoryScreen({Key? key});
@@ -80,13 +80,9 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                           },
                         ).toList(),
                       ),
-
-                      // Add icon button
                       IconButton(
                         icon: const Icon(Icons.add),
                         onPressed: () {
-                          // Call a function to add a new category
-                         
                         },
                       ),
                     ],

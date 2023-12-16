@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kidsland/screen/usercategory_list.dart';
-import 'package:kidsland/screen/admin_login.dart';
+import 'package:kidsland/screen/user/usercategory_list.dart';
+import 'package:kidsland/screen/admin/admin_login.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
 
 class Welcome_screen extends StatefulWidget {
@@ -76,6 +76,7 @@ class _Welcome_screenState extends State<Welcome_screen> {
                 InkWell(
                     onTap: () async {
                       await shared_preferences.setname(namecontroller.text);
+                      // ignore: use_build_context_synchronously
                       Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
@@ -83,8 +84,8 @@ class _Welcome_screenState extends State<Welcome_screen> {
                           ));  namecontroller.clear();
                     },
                     child: const CircleAvatar(
-                      radius:40,
-                      child: Icon(Icons.home,size:30,),backgroundColor: Colors.red,
+                      radius:40,backgroundColor: Colors.red,
+                      child: Icon(Icons.home,size:30,),
                     ))
               ],
             ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kidsland/model/storie_model.dart';
 
 class StoryDetails extends StatefulWidget {
-  StoryDetails({Key? key, required this.storyforkids}) : super(key: key);
+  const StoryDetails({Key? key, required this.storyforkids}) : super(key: key);
 
   final StoryModel storyforkids;
 
