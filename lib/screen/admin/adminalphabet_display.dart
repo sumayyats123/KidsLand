@@ -121,6 +121,7 @@ void initState() {
                                                       deleateItem(
                                                           key);
                                                       setState(() {fetchData();});
+                                                      // ignore: use_build_context_synchronously
                                                       Navigator.of(context)
                                                           .pop();
                                                           

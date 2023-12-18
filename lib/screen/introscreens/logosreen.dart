@@ -3,6 +3,7 @@ import 'package:kidsland/screen/introscreens/welocmescreen.dart';
 
 
 
+
 class LogoScreen
  extends StatelessWidget {
      const LogoScreen
@@ -20,7 +21,7 @@ class LogoScreen
                   },
                     child: ElevatedButton(style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.red) ),
                         onPressed: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const Welcome_screen(),));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const Welcomescreen(),));
                         }, 
                         child: const Text("Get Started ",style: TextStyle(fontSize: 20, ),),),
                   ),

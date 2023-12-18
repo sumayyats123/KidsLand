@@ -4,7 +4,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/screen/admin/adminalphabet_display.dart';
@@ -138,6 +137,7 @@ class _ShowDetailsScreenState extends State<ShowDetailsScreen> {
       print(details);
       
          await updateAlphabetData(); 
+         // ignore: use_build_context_synchronously
          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AlphabetDisplay(),));
     }
   },

@@ -4,6 +4,7 @@ import 'package:kidsland/screen/introscreens/logosreen.dart';
 import 'package:kidsland/screen/user/userstorydisplay.dart';
 import 'package:kidsland/screen/user/useralphabet_display.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
+import 'package:kidsland/widget/lists.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key, required this.name});
@@ -14,18 +15,18 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  List<List<String>> list = [
-    ['Alphabets', 'assets/images/ccc.jpg'],
-    ['Numbers', 'assets/images/45.jpg'],
-    ['Shapes', 'assets/images/shsh.png'],
-    ['Colours', 'assets/images/color.jpg'],
-    ['Animals', 'assets/images/an.jpg'],
-    ['Bodyparts','assets/images/bp.jpg'],
-  ];
-  List<List<String>> storyndcartoon = [
-    ["Story", 'assets/images/sg.avif'],
-    ["Rhymes",'assets/images/cute.jpg'],
-  ];
+  String? username;
+  void fetchName(){
+    setState(() {
+      username=widget.name;
+    });
+  }
+ 
+  @override
+  void initState() {
+    super.initState();
+    username = widget.name;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Welcome  ${widget.name}',
+            'Welcome  $username',
             style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,

@@ -14,7 +14,8 @@ static Future<String?> getName() async {
     SharedPreferences sf = await SharedPreferences.getInstance();
     return  sf.getString(nameKey);
 }
-  }
 
+  static init() {}
+  }
 
 

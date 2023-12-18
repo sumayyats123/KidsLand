@@ -3,16 +3,16 @@ import 'package:kidsland/screen/user/usercategory_list.dart';
 import 'package:kidsland/screen/admin/admin_login.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
 
-class Welcome_screen extends StatefulWidget {
-  const Welcome_screen({super.key});
+class Welcomescreen extends StatefulWidget {
+  const Welcomescreen({super.key});
 
   @override
-  State<Welcome_screen> createState() => _Welcome_screenState();
+  State<Welcomescreen> createState() => _WelcomescreenState();
 }
 
 final namecontroller = TextEditingController();
 
-class _Welcome_screenState extends State<Welcome_screen> {
+class _WelcomescreenState extends State<Welcomescreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -76,7 +76,6 @@ class _Welcome_screenState extends State<Welcome_screen> {
                       await shared_preferences.setname(namecontroller.text);
                       // ignore: use_build_context_synchronously
                       Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => DashboardPage(name: namecontroller.text),), (route) => false);
-                          namecontroller.clear();
                     },
                     child: const CircleAvatar(
                       radius:40,backgroundColor: Colors.red,
@@ -88,5 +87,11 @@ class _Welcome_screenState extends State<Welcome_screen> {
         ]),
       )),
     );
+  }
+
+  @override
+  void dispose() {
+    namecontroller.clear();
+    super.dispose();
   }
 }
