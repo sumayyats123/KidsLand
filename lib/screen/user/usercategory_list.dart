@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:kidsland/screen/introscreens/logosreen.dart';
-import 'package:kidsland/screen/user/userstorydisplay.dart';
 import 'package:kidsland/screen/user/useralphabet_display.dart';
+import 'package:kidsland/screen/user/userstorydisplay.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
+import 'package:kidsland/widget/constants.dart';
 import 'package:kidsland/widget/lists.dart';
 
 class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key, required this.name});
+  const DashboardPage({Key? key, required this.name}) : super(key: key);
   final String name;
 
   @override
@@ -16,12 +16,7 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   String? username;
-  void fetchName(){
-    setState(() {
-      username=widget.name;
-    });
-  }
- 
+
   @override
   void initState() {
     super.initState();
@@ -35,7 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
         appBar: AppBar(
           title: Text(
             'Welcome  $username',
-            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            style: AppTextStyles.appBarTitle,
           ),
           centerTitle: true,
           backgroundColor: const Color.fromRGBO(221, 7, 175, 1),
@@ -49,23 +44,23 @@ class _DashboardPageState extends State<DashboardPage> {
           ],
         ),
         body: Container(
-           decoration: const BoxDecoration(
-             gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 36, 228, 202),
-                Color.fromARGB(255, 255, 148, 244), 
-            ]
-             )
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color.fromARGB(255, 36, 228, 202),
+                Color.fromARGB(255, 255, 148, 244),
+              ],
             ),
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GridView.builder(
+                     GridView.builder(
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing:10,
@@ -106,11 +101,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       const EdgeInsets.only(top:54, left: 45),
                                   child: Text(
                                     categoryName,
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: const Color.fromARGB(255, 182, 16, 4),
-                                    ),
+                                    style: AppTextStyles.categoryTitle,
                                   ),
                                 ),
                               ),
@@ -122,8 +113,8 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(  
-                      height: 200 , 
+                    child: SizedBox(
+                      height: 200,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true,
@@ -136,14 +127,14 @@ class _DashboardPageState extends State<DashboardPage> {
                           return InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>UserStoryDisplay(category: categoryNames,)
-                              ));
+                                  builder: (context) =>
+                                      UserStoryDisplay(category: categoryNames)));
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all( 9.0  ),
+                              padding: const EdgeInsets.all(9.0),
                               child: SizedBox(
-                                width:180, 
-                                height: 200,    
+                                width: 180,
+                                height: 200,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(13.0),
                                   child: Container(
@@ -157,16 +148,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                       padding:
                                           const EdgeInsets.only(top: 98, left: 7),
                                       child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 45, left: 45),
+                                        padding: const EdgeInsets.only(
+                                            top: 45, left: 45),
                                         child: Text(
                                           categoryNames,
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            color:
-                                              const Color.fromARGB(255, 182, 16, 4),
-                                          ),
+                                          style: AppTextStyles.categoryTitle,
                                         ),
                                       ),
                                     ),
@@ -187,7 +173,6 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
-
   void showLogoutConfirmationDialog() {
     showDialog(
       context: context,
