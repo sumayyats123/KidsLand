@@ -218,7 +218,6 @@ class _AdminScreenState extends State<AdminScreen> {
     } catch (e) {}
     return image;
   }
-
   void _addNewCategory() {
     String newCategory = '';
 

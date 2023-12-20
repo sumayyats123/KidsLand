@@ -20,7 +20,7 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
   AudioPlayer audioPlayer = AudioPlayer();
   final formkey = GlobalKey<FormState>();
   TextEditingController wordsController = TextEditingController();
- 
+
   String? audiofilePath;
   File? storyImages;
 
@@ -28,7 +28,6 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
   List<List<String>> storyndcartoon = [
     ['Story'],
     ['Rhymes'],
-    
   ];
 
   @override
@@ -43,7 +42,6 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                
                   const SizedBox(
                     height: 30,
                   ),
@@ -82,8 +80,7 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                       ),
                       IconButton(
                         icon: const Icon(Icons.add),
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                       ),
                     ],
                   ),
@@ -128,15 +125,13 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                       backgroundColor: MaterialStateProperty.all(Colors.red),
                     ),
                     onPressed: () async {
-                      if (
-                          storyImages != null &&
-                          audiofilePath != null) {
+                      if (storyImages != null && audiofilePath != null) {
                         final details = StoryModel(
                           storyUrl: storyImages!.path.toString(),
                           words: wordsController.text,
                           audioFile: audiofilePath!,
                           list: dropdown,
-                           videoplayer: '',
+                          videoplayer: '',
                         );
                         await addstory(details);
                         Navigator.of(context).pushAndRemoveUntil(
@@ -193,5 +188,4 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
     } catch (e) {}
     return image;
   }
-
 }

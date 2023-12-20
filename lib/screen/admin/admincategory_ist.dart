@@ -3,7 +3,7 @@ import 'package:kidsland/screen/admin/adminalphabet_display.dart';
 import 'package:kidsland/screen/introscreens/logosreen.dart';
 import 'package:kidsland/screen/admin/adminstordisplay.dart';
 import 'package:kidsland/screen/introscreens/welocmescreen.dart';
-
+import 'package:kidsland/widget/constants.dart';
 
 class CategoryList extends StatefulWidget {
   const CategoryList({
@@ -15,18 +15,20 @@ class CategoryList extends StatefulWidget {
 }
 
 class _CategoryListState extends State<CategoryList> {
+  final adminca = AppTextStyles();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title:texteditingcontroller.textEdit(text: 'Add Datas',fsize: 30),
+          title: texteditingcontroller.textEdit(text: 'Add Datas', fsize: 30),
           centerTitle: true,
-         backgroundColor: const Color.fromRGBO(221, 7, 175, 1),
+          backgroundColor: const Color.fromRGBO(221, 7, 175, 1),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [const Text('Alphabet Category'),
+          children: [
+            const Text('Alphabet Category'),
             SizedBox(
               height: 100,
               width: 100,
@@ -36,40 +38,37 @@ class _CategoryListState extends State<CategoryList> {
                     builder: (context) => const AlphabetDisplay(),
                   ));
                 },
-                child:  const CircleAvatar(
-                  radius: 10,
-                  backgroundColor: Colors.red,
-                  child: Icon(
-                    Icons.add,
-                    size: 50,
-                    color: Colors.white,
-                  ),
-                ),
+                child: adminca.buildCircleAvatar(
+                    caradius: 10,
+                    cacolor: Colors.red,
+                    casize: 50,
+                    caiconcolor: Colors.white),
               ),
             ),
-            const SizedBox(
-              height: 60 ,
+            const Padding(
+              padding: EdgeInsets.only(top: 40),
+              child: Text('Story Category'),
             ),
-            Center(
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const StoryDisplay(),
+                  ));
+                },
+                child: adminca.buildCircleAvatar(
+                    caradius: 10,
+                    cacolor: Colors.red,
+                    casize: 50,
+                    caiconcolor: Colors.white),
+              ),
+            ),
+            const Center(
               child: SizedBox(
                 height: 100,
                 width: 100,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const StoryDisplay(),
-                    ));
-                  },
-                  child: const CircleAvatar(
-                    radius: 10,
-                    backgroundColor: Colors.red,
-                    child: Icon(
-                      Icons.add,
-                      size: 50,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
               ),
             ),
             const SizedBox(

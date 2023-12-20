@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kidsland/screen/admin/admincategory_ist.dart';
 import 'package:kidsland/widget/constants.dart';
 
-
 class AdminLogin extends StatefulWidget {
   const AdminLogin({
     Key? key,
@@ -31,15 +30,13 @@ class _AdminLoginState extends State<AdminLogin> {
             key: _formFieldKey,
             child: Column(
               children: [
-               
                 Padding(
-                  padding: const EdgeInsets.only(top: 250), 
+                  padding: const EdgeInsets.only(top: 250),
                   child: buildTextFormField(
                     labelText: 'Email',
                     prefixIcon: Icons.email,
                     validator: (value) {
-                      return RegExp(r"^[a-z0-9]+@gmail+\.com+")
-                          .hasMatch(value!)
+                      return RegExp(r"^[a-z0-9]+@gmail+\.com+").hasMatch(value!)
                           ? null
                           : "Please enter a valid email";
                     },
@@ -72,43 +69,43 @@ class _AdminLoginState extends State<AdminLogin> {
                   controller: passwordController,
                 ),
                 const SizedBox(height: 20),
-              ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.red),
-                  ),
-                  onPressed: () async {
-                    if (_formFieldKey.currentState!.validate()) {
-                      if (emailController.text == 'sumayyats429@gmail.com' &&
-                          passwordController.text == 'mi@123') {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Successful'),
-                          ),
-                        );
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CategoryList(),
-                          ),
-                          (route) => false,
-                        );
-                        emailController.clear();
-                        passwordController.clear();
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              'Enter the Email or Password is incorrect',
+                ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                    ),
+                    onPressed: () async {
+                      if (_formFieldKey.currentState!.validate()) {
+                        if (emailController.text == 'sumayyats429@gmail.com' &&
+                            passwordController.text == 'mi@123') {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Successful'),
                             ),
-                          ),
-                        );
-                      } 
-                    }
-                  },
-                  child: const Text(
-                    "Admin Login",
-                    style: TextStyle(fontSize: 20),
-                  )),
+                          );
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CategoryList(),
+                            ),
+                            (route) => false,
+                          );
+                          emailController.clear();
+                          passwordController.clear();
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                'Enter the Email or Password is incorrect',
+                              ),
+                            ),
+                          );
+                        }
+                      }
+                    },
+                    child: const Text(
+                      "Admin Login",
+                      style: TextStyle(fontSize: 20),
+                    )),
               ],
             ),
           ),

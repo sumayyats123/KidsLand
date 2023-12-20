@@ -7,153 +7,170 @@ import 'package:kidsland/screen/introscreens/logosreen.dart';
 import 'package:kidsland/screen/admin/adminstordetails.dart';
 import 'package:kidsland/screen/admin/adminstoryscreen.dart';
 
-
-
 class StoryDisplay extends StatefulWidget {
-const   StoryDisplay ({super.key});
+  const StoryDisplay({super.key});
 
   @override
-  State<StoryDisplay > createState() => _StoryDisplayState();
-} 
-List<StoryModel> details =[];
-class _StoryDisplayState extends State<StoryDisplay> {
+  State<StoryDisplay> createState() => _StoryDisplayState();
+}
 
-Future<void>fetchData()async{
-  List<StoryModel>storyDetails =await getstory();
-  setState(() {
-    details=storyDetails;
-  });
+List<StoryModel> details = [];
+
+class _StoryDisplayState extends State<StoryDisplay> {
+  Future<void> fetchData() async {
+    List<StoryModel> storyDetails = await getstory();
+    setState(() {
+      details = storyDetails;
+    });
   }
 
-   @override
-   void initState(){
+  @override
+  void initState() {
     fetchData();
     super.initState();
-   }
+  }
 
   @override
-  
   Widget build(BuildContext context) {
-  
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Story',style: TextStyle(fontSize: 25),),
+          title: const Text(
+            'Story',
+            style: TextStyle(fontSize: 25),
+          ),
           backgroundColor: Colors.red,
           centerTitle: true,
-           actions: const [Icon(Icons.text_rotation_none_outlined),SizedBox(width: 20,)],
-        leading: InkWell(onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const CategoryList()));
-        },
-          child: const Icon(Icons.arrow_back)),
-           
+          actions: const [
+            Icon(Icons.text_rotation_none_outlined),
+            SizedBox(
+              width: 20,
+            )
+          ],
+          leading: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CategoryList()));
+              },
+              child: const Icon(Icons.arrow_back)),
         ),
-        body:Column(
-        children: [
-          details.isEmpty
-              ? const Center(child: CircularProgressIndicator())
-              : Expanded(
-                  child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 13, vertical: 13),
-                  child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              childAspectRatio: 1 / 1.5,
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 10),
-                      itemCount: details.length,
-                      itemBuilder: (context, index) {
-                        return  InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>StoryDetails(
-                                    storyDetails: details[index])));
-                          },
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(16.0),
-                                child: Image.file(
-                                  File(
-                                    (details[index].storyUrl),
+        body: Column(
+          children: [
+            details.isEmpty
+                ? const Center(child: CircularProgressIndicator())
+                : Expanded(
+                    child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 13, vertical: 13),
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                childAspectRatio: 1 / 1.5,
+                                crossAxisCount: 3,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 10),
+                        itemCount: details.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StoryDetails(
+                                          storyDetails: details[index])));
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                  child: Image.file(
+                                    File(
+                                      (details[index].storyUrl),
+                                    ),
+                                    fit: BoxFit.cover,
                                   ),
-                                  fit: BoxFit.cover,
                                 ),
-                              ),
-                              Positioned(
-                                bottom: 5,
-                                right: 0,
-                                child: CircleAvatar(
-                                    radius: 20,
-                                    backgroundColor: Colors.green,
-                                    child: IconButton(
-                                      onPressed: () {
-                                        showDialog(
-                                          context: context,
-                                          builder: (context) {
-                                            return AlertDialog(
-                                              backgroundColor: Colors.white,
-                                              title: const Text("Delete Image"),
-                                              content: const Text(
-                                                  "Are you sure you want to delete ?"),
-                                              actions: [
-                                                ElevatedButton(
-                                                    style: const ButtonStyle(
-                                                        backgroundColor:
-                                                            MaterialStatePropertyAll(
-                                                                Colors.green)),
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    },
-                                                    child:
-                                                        const Text("Cancel")),
-                                                ElevatedButton(
-                                                    style: const ButtonStyle(
-                                                        backgroundColor:
-                                                            MaterialStatePropertyAll(
-                                                                Colors.green)),
-                                                    onPressed: () async{
-                                                     int key= await getstoryKey(details[index]);
-                                                      deleatestoryItem(
-                                                          key);
-                                                      setState(() {fetchData();});
-                                                      // ignore: use_build_context_synchronously
-                                                      Navigator.of(context)
-                                                          .pop();   
-                                                    },
-                                                    child: const Text("Ok"))
-                                              ],
-                                            );
-                                          },
-                                        );
-                                      },
-                                      icon: const Icon(
-                                        Icons.delete,
-                                        size: 20,
-                                      ),
-                                    )),
-                              )
-                            ],
-                          ),
-                        );
-                      }),
-                )),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(onPressed: ()async 
-      {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AdminStoryScreen(),));
-        
-      },child: const Icon(Icons.add),),
-      
+                                Positioned(
+                                  bottom: 5,
+                                  right: 0,
+                                  child: CircleAvatar(
+                                      radius: 20,
+                                      backgroundColor: Colors.green,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                backgroundColor: Colors.white,
+                                                title:
+                                                    const Text("Delete Image"),
+                                                content: const Text(
+                                                    "Are you sure you want to delete ?"),
+                                                actions: [
+                                                  ElevatedButton(
+                                                      style: const ButtonStyle(
+                                                          backgroundColor:
+                                                              MaterialStatePropertyAll(
+                                                                  Colors
+                                                                      .green)),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      child:
+                                                          const Text("Cancel")),
+                                                  ElevatedButton(
+                                                      style: const ButtonStyle(
+                                                          backgroundColor:
+                                                              MaterialStatePropertyAll(
+                                                                  Colors
+                                                                      .green)),
+                                                      onPressed: () async {
+                                                        int key =
+                                                            await getstoryKey(
+                                                                details[index]);
+                                                        deleatestoryItem(key);
+                                                        setState(() {
+                                                          fetchData();
+                                                        });
+                                                        // ignore: use_build_context_synchronously
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      child: const Text("Ok"))
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                        icon: const Icon(
+                                          Icons.delete,
+                                          size: 20,
+                                        ),
+                                      )),
+                                )
+                              ],
+                            ),
+                          );
+                        }),
+                  )),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const AdminStoryScreen(),
+            ));
+          },
+          child: const Icon(Icons.add),
+        ),
       ),
     );
-  }@override
+  }
+
+  @override
   void dispose() {
     details.clear();
     super.dispose();
