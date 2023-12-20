@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kidsland/screen/admin/admin_login.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
 import 'package:kidsland/screen/user/usercategory_list.dart';
-import 'package:kidsland/widget/constants.dart';// Import the app_constants.dart file
+import 'package:kidsland/widget/constants.dart';
 
 class Welcomescreen extends StatefulWidget {
   const Welcomescreen({super.key});
@@ -12,6 +12,7 @@ class Welcomescreen extends StatefulWidget {
 }
 
 final namecontroller = TextEditingController();
+final texteditingcontroller = AppTextStyles();
 
 class _WelcomescreenState extends State<Welcomescreen> {
   @override
@@ -27,14 +28,18 @@ class _WelcomescreenState extends State<Welcomescreen> {
                 "assets/images/rainbow__1_-removebg-preview.png",
                 width: size.width,
               ),
-              const Text(
-                'Welcome',
-                style: AppTextStyles.welcomeTitle, // Use the constant for welcome title
-              ),
-              const Text(
-                'Shining Star',
-                style: AppTextStyles.subTitle, // Use the constant for subtitle
-              ),
+              texteditingcontroller.textEdit(
+                  text: 'WELCOME',
+                  tcolor: Colors.red,
+                  tfamily: 'Poppins',
+                  fsize: 25,
+                  fweight: FontWeight.bold),
+              texteditingcontroller.textEdit(
+                  text: 'Shining Stars',
+                  tcolor: Colors.red,
+                  tfamily: 'Poppins',
+                  fsize: 30,
+                  fweight: FontWeight.bold),
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: TextField(
@@ -43,7 +48,6 @@ class _WelcomescreenState extends State<Welcomescreen> {
                     labelText: 'Name',
                     hintText: 'Enter Your  Name ',
                   ),
-                  style: AppTextStyles.inputTextStyle, // Use the constant for input text style
                 ),
               ),
               const SizedBox(
@@ -63,24 +67,26 @@ class _WelcomescreenState extends State<Welcomescreen> {
                           (route) => false,
                         );
                       },
-                      child: const Row(
+                      child: Row(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(left: 25),
-                            child: Text(
-                              'Adminlogin',
-                              style: AppTextStyles.adminLoginTextStyle, // Use the constant for admin login text style
-                            ),
-                          ),
+                              padding: const EdgeInsets.only(left: 25),
+                              child: texteditingcontroller.textEdit(
+                                text: 'AdminLogin',
+                                tcolor: Colors.red,
+                                fsize: 15,
+                              )),
                         ],
                       ),
                     ),
                     InkWell(
                       onTap: () async {
                         await shared_preferences.setname(namecontroller.text);
+                        // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                            builder: (context) => DashboardPage(name: namecontroller.text),
+                            builder: (context) =>
+                                DashboardPage(name: namecontroller.text),
                           ),
                           (route) => false,
                         );

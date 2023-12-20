@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: name.isEmpty ? LogoScreen() : DashboardPage(name: name),
+      home: name.isEmpty ? const LogoScreen() : DashboardPage(name: name),
       debugShowCheckedModeBanner: false,
     );
   }

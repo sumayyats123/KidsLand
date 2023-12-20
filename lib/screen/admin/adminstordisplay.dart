@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_stories.dart';
 import 'package:kidsland/model/storie_model.dart';
+import 'package:kidsland/screen/admin/admincategory_ist.dart';
 import 'package:kidsland/screen/introscreens/logosreen.dart';
 import 'package:kidsland/screen/admin/adminstordetails.dart';
 import 'package:kidsland/screen/admin/adminstoryscreen.dart';
@@ -42,7 +43,7 @@ Future<void>fetchData()async{
           centerTitle: true,
            actions: const [Icon(Icons.text_rotation_none_outlined),SizedBox(width: 20,)],
         leading: InkWell(onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const LogoScreen()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const CategoryList()));
         },
           child: const Icon(Icons.arrow_back)),
            

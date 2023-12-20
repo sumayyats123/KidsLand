@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kidsland/screen/admin/admincategory_ist.dart';
 import 'package:kidsland/widget/constants.dart';
 
+
 class AdminLogin extends StatefulWidget {
   const AdminLogin({
     Key? key,
@@ -20,7 +21,6 @@ class _AdminLoginState extends State<AdminLogin> {
   File? selectedImage;
   File? audioFilePath;
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,17 +31,20 @@ class _AdminLoginState extends State<AdminLogin> {
             key: _formFieldKey,
             child: Column(
               children: [
-                const SizedBox(height: 100),
-                buildTextFormField(
-                  labelText: 'Email',
-                  prefixIcon: Icons.email,
-                  validator: (value) {
-                    return RegExp(r"^[a-z0-9]+@gmail+\.com+")
-                        .hasMatch(value!)
-                        ? null
-                        : "Please enter a valid email";
-                  },
-                  controller: emailController,
+               
+                Padding(
+                  padding: const EdgeInsets.only(top: 250), 
+                  child: buildTextFormField(
+                    labelText: 'Email',
+                    prefixIcon: Icons.email,
+                    validator: (value) {
+                      return RegExp(r"^[a-z0-9]+@gmail+\.com+")
+                          .hasMatch(value!)
+                          ? null
+                          : "Please enter a valid email";
+                    },
+                    controller: emailController,
+                  ),
                 ),
                 const SizedBox(height: 30),
                 buildTextFormField(
@@ -69,7 +72,7 @@ class _AdminLoginState extends State<AdminLogin> {
                   controller: passwordController,
                 ),
                 const SizedBox(height: 20),
-                ElevatedButton(
+              ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.red),
                   ),
@@ -99,14 +102,13 @@ class _AdminLoginState extends State<AdminLogin> {
                             ),
                           ),
                         );
-                      }
+                      } 
                     }
                   },
                   child: const Text(
                     "Admin Login",
                     style: TextStyle(fontSize: 20),
-                  ),
-                ),
+                  )),
               ],
             ),
           ),

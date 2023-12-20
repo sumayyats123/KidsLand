@@ -3,41 +3,23 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-  static const TextStyle welcomeTitle = TextStyle(
-    fontSize: 40,
-    fontWeight: FontWeight.w700,
-    color:    Colors.red,
-    fontFamily: 'Poppins',
-  );
-
-  static const TextStyle subTitle = TextStyle(
-    fontSize: 25,
-    fontWeight: FontWeight.w600,
-    color: Colors.red,
-    fontFamily: 'Poppins',
-  );
-
-  static const TextStyle inputTextStyle = TextStyle(
-    fontWeight: FontWeight.bold,
-    color: Colors.red,
-  );
-
-  static const TextStyle adminLoginTextStyle = TextStyle(
-    fontSize: 10,
-    color: Colors.black45,
-    fontWeight: FontWeight.bold,
-  );
-
-  static const TextStyle appBarTitle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
-  );
-
-  static const TextStyle categoryTitle = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-    color: Color.fromARGB(255, 182, 16, 4),
-  );
+  Widget textEdit(
+      {
+        String? text,
+         double? fsize,
+        FontWeight ?fweight,
+        Color? tcolor,
+        String? tfamily,
+      }
+  ){
+    return Text(text!,style: TextStyle(
+      fontSize: fsize,
+      fontWeight: fweight,
+      color: tcolor,
+      fontFamily: tfamily,
+    ),
+    );
+  }
 
 }
 
@@ -58,11 +40,14 @@ class AppFormFieldDecorations {
 
   Widget buildTextFormField({
     required String labelText,
-    required IconData prefixIcon,
+     IconData? prefixIcon,
     bool obscureText = false,
     Widget? suffixIcon,
     String? Function(String?)? validator,
     required TextEditingController controller,
+    dynamic  decoration
+   
+      
   }) {
     return TextFormField(
       controller: controller,
@@ -70,8 +55,14 @@ class AppFormFieldDecorations {
         labelText: labelText,
         prefixIcon: Icon(prefixIcon),
         suffixIcon: suffixIcon,
+        
       ),
       obscureText: obscureText,
       validator: validator,
+      
     );
   }
+
+ 
+  
+ 
