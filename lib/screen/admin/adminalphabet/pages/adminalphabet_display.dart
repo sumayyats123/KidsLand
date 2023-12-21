@@ -2,9 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
-import 'package:kidsland/screen/admin/adminscreen.dart';
-import 'package:kidsland/screen/admin/adminalphabet_details.dart';
-import 'package:kidsland/screen/admin/admincategory_ist.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminscreen.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminalphabet_details.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/admincategory_ist.dart';
 import 'package:kidsland/screen/introscreens/welocmescreen.dart';
 
 class AlphabetDisplay extends StatefulWidget {

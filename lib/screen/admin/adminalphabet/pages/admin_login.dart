@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:kidsland/screen/admin/admincategory_ist.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/admincategory_ist.dart';
 import 'package:kidsland/widget/constants.dart';
 
 class AdminLogin extends StatefulWidget {

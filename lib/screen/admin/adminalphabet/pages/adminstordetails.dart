@@ -1,11 +1,10 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:kidsland/database/functions/db_stories.dart';
 import 'package:kidsland/model/storie_model.dart';
-import 'package:kidsland/screen/admin/adminstordisplay.dart';
+import 'package:kidsland/screen/admin/adminalphabet/functions/functionsofadmin.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminstordisplay.dart';
 
 
 class StoryDetails extends StatefulWidget {
@@ -162,20 +161,6 @@ class _StoryDetailsState extends State<StoryDetails> {
     return '';
   }
 
-  Future<File> selectImageFromGallery(BuildContext context) async {
-    File? image;
-    try {
-      final pickedImage =
-          await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (pickedImage != null) {
-        image = File(pickedImage.path);
-      }
-    } catch (e) {
-      return image!;
-    }
-    return image!;
-  }
-
   Future<void> updatestoryData() async {
     final updatestoryData = StoryModel(
       words: wordsController.text,
@@ -188,9 +173,5 @@ class _StoryDetailsState extends State<StoryDetails> {
     await updatestory(updatestoryData, key);
   }
 
-  int getkeyofupdatestory(StoryModel details) {
-    var box = Hive.box<StoryModel>('story');
-    var key = box.keyAt(box.values.toList().indexOf(details));
-    return key;
-  }
+
 }

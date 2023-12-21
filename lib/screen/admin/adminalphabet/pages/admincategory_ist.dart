@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kidsland/screen/admin/adminalphabet_display.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminalphabet_display.dart';
 import 'package:kidsland/screen/introscreens/logosreen.dart';
-import 'package:kidsland/screen/admin/adminstordisplay.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminstordisplay.dart';
 import 'package:kidsland/screen/introscreens/welocmescreen.dart';
 import 'package:kidsland/widget/constants.dart';
 

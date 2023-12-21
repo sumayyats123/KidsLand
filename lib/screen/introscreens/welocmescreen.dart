@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kidsland/screen/admin/admin_login.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/admin_login.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
-import 'package:kidsland/screen/user/usercategory_list.dart';
+import 'package:kidsland/screen/user/pages/usercategory_list.dart';
 import 'package:kidsland/widget/constants.dart';
 
 class Welcomescreen extends StatefulWidget {

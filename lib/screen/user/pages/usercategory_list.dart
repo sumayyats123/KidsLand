@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kidsland/screen/introscreens/logosreen.dart';
-import 'package:kidsland/screen/user/userstorydisplay.dart';
-import 'package:kidsland/screen/user/useralphabet_display.dart';
-import 'package:kidsland/database/functions/sharedpreference.dart';
+import 'package:kidsland/screen/user/function/functionsforuser.dart';
+import 'package:kidsland/screen/user/pages/userstorydisplay.dart';
+import 'package:kidsland/screen/user/pages/useralphabet_display.dart';
 import 'package:kidsland/widget/lists.dart';
+import 'package:kidsland/widget/userstoryimagewidget.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key, required this.name});
@@ -16,11 +16,12 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   String? username;
-  void fetchName(){
+  void fetchName() {
     setState(() {
-      username=widget.name;
+      username = widget.name;
     });
   }
+
   @override
   void initState() {
     super.initState();
@@ -41,23 +42,21 @@ class _DashboardPageState extends State<DashboardPage> {
           actions: [
             IconButton(
               onPressed: () {
-                showLogoutConfirmationDialog();
+                showLogoutConfirmationDialog(context);
               },
               icon: const Icon(Icons.power_settings_new),
             )
           ],
         ),
         body: Container(
-           decoration: const BoxDecoration(
-             gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 36, 228, 202),
-                Color.fromARGB(255, 255, 148, 244), 
-            ]
-             )
-            ),
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                Color.fromARGB(255, 36, 228, 202),
+                Color.fromARGB(255, 255, 148, 244),
+              ])),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: SingleChildScrollView(
@@ -65,10 +64,11 @@ class _DashboardPageState extends State<DashboardPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing:10,
-                      crossAxisSpacing:0,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 0,
                       childAspectRatio: 1 / 0.95,
                     ),
                     shrinkWrap: true,
@@ -99,16 +99,18 @@ class _DashboardPageState extends State<DashboardPage> {
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.only(top: 98, left: 7),
+                                padding:
+                                    const EdgeInsets.only(top: 98, left: 7),
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.only(top:54, left: 45),
+                                      const EdgeInsets.only(top: 54, left: 45),
                                   child: Text(
                                     categoryName,
                                     style: GoogleFonts.poppins(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: const Color.fromARGB(255, 182, 16, 4),
+                                      color:
+                                          const Color.fromARGB(255, 182, 16, 4),
                                     ),
                                   ),
                                 ),
@@ -117,12 +119,12 @@ class _DashboardPageState extends State<DashboardPage> {
                           ),
                         ),
                       );
-                    }, 
+                    },
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(  
-                      height: 200 , 
+                    child: SizedBox(
+                      height: 200,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true,
@@ -135,44 +137,11 @@ class _DashboardPageState extends State<DashboardPage> {
                           return InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>UserStoryDisplay(category: categoryNames,)
-                              ));
+                                  builder: (context) => UserStoryDisplay(
+                                        category: categoryNames,
+                                      )));
                             },
-                            child: Padding(
-                              padding: const EdgeInsets.all( 9.0  ),
-                              child: SizedBox(
-                                width:180, 
-                                height: 200,    
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(13.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(imagePaths),
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.only(top: 98, left: 7),
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 45, left: 45),
-                                        child: Text(
-                                          categoryNames,
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            color:
-                                              const Color.fromARGB(255, 182, 16, 4),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                            child: StoryImageWidget(imagePaths: imagePaths, categoryNames: categoryNames),
                           );
                         },
                       ),
@@ -184,37 +153,6 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ),
       ),
-    );
-  }
-  void showLogoutConfirmationDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Logout Confirmation'),
-          content: const Text('Do you want to logout?'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                shared_preferences.setname('');
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (context) => const LogoScreen(),
-                  ),
-                  (route) => false,
-                );
-              },
-              child: const Text('Logout'),
-            ),
-          ],
-        );
-      },
     );
   }
 }

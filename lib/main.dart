@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/model/storie_model.dart';
-import 'package:kidsland/screen/user/usercategory_list.dart';
+import 'package:kidsland/screen/user/pages/usercategory_list.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kidsland/screen/introscreens/logosreen.dart';
 import 'package:kidsland/database/functions/sharedpreference.dart';
@@ -34,7 +34,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: name.isEmpty ? const LogoScreen() : DashboardPage(name: name),
+      home: name.isEmpty ? const LogoScreen() : DashboardPage(name: name)
+      , 
       debugShowCheckedModeBanner: false,
     );
   }

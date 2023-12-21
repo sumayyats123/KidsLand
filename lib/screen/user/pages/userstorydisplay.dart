@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:kidsland/model/storie_model.dart';
-import 'package:kidsland/screen/user/userstorydetails.dart';
+import 'package:kidsland/screen/user/pages/userstorydetails.dart';
 
 class UserStoryDisplay extends StatefulWidget {
   const UserStoryDisplay({Key? key, required this.category}) : super(key: key);

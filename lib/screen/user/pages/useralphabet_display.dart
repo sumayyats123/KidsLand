@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
-import 'package:kidsland/screen/user/useralphabet_details.dart';
+import 'package:kidsland/screen/user/pages/useralphabet_details.dart';
 // ignore: must_be_immutable
 class AbcScreen extends StatefulWidget {
   AbcScreen({super.key, required this.category});

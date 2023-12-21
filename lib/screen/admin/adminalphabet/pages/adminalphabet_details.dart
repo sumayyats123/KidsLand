@@ -1,11 +1,10 @@
 import 'dart:io';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
-import 'package:kidsland/screen/admin/adminalphabet_display.dart';
+import 'package:kidsland/screen/admin/adminalphabet/functions/functionsofadmin.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminalphabet_display.dart';
 import 'package:kidsland/widget/constants.dart';
 
 class ShowDetailsScreen extends StatefulWidget {
@@ -160,33 +159,6 @@ class _ShowDetailsScreenState extends State<ShowDetailsScreen> {
         ),
       ),
     );
-  }
-
-  Future<String> pickAndPlayAudio(BuildContext context) async {
-    FilePickerResult? result =
-        await FilePicker.platform.pickFiles(type: FileType.audio);
-
-    if (result != null && result.files.isNotEmpty) {
-      String? filePath = result.files.single.path;
-      if (filePath != null) {
-        return filePath;
-      }
-    }
-    return '';
-  }
-
-  Future<File> selectImageFromGallery(BuildContext context) async {
-    File? image;
-    try {
-      final pickedImage =
-          await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (pickedImage != null) {
-        image = File(pickedImage.path);
-      }
-    } catch (e) {
-      return image!;
-    }
-    return image!;
   }
 
   Future<void> updateAlphabetData() async {

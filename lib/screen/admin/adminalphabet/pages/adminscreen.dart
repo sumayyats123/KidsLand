@@ -1,33 +1,34 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-
-import 'package:kidsland/database/functions/db_stories.dart';
-
-import 'package:kidsland/model/storie_model.dart';
+import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
+import 'package:kidsland/model/alphabets_model.dart';
+import 'package:kidsland/screen/admin/adminalphabet/functions/functionsofadmin.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminalphabet_display.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:kidsland/screen/admin/adminstordisplay.dart';
 
-class AdminStoryScreen extends StatefulWidget {
-  const AdminStoryScreen({Key? key});
+class AdminScreen extends StatefulWidget {
+  const AdminScreen({Key? key});
 
   @override
-  State<AdminStoryScreen> createState() => _AdminStoryScreenState();
+  State<AdminScreen> createState() => _AdminScreenState();
 }
 
-class _AdminStoryScreenState extends State<AdminStoryScreen> {
+class _AdminScreenState extends State<AdminScreen> {
   AudioPlayer audioPlayer = AudioPlayer();
   final formkey = GlobalKey<FormState>();
   TextEditingController wordsController = TextEditingController();
-
+  File? selectImage;
   String? audiofilePath;
-  File? storyImages;
+  File? alphabetImages;
 
-  String dropdown = "Story";
-  List<List<String>> storyndcartoon = [
-    ['Story'],
-    ['Rhymes'],
+  String dropdown = "Alphabets";
+  List<List<String>> categories = [
+    ['Alphabets'],
+    ['Numbers'],
+    ['Shapes'],
+    ['Colours'],
+    ['Animals'],
+    ['Bodyparts'],
   ];
 
   @override
@@ -42,6 +43,30 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Container(
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      image: selectImage != null
+                          ? DecorationImage(
+                              image: FileImage(selectImage!), fit: BoxFit.cover)
+                          : null,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: selectImage == null
+                        ? IconButton(
+                            onPressed: () async {
+                              File? pickedImage =
+                                  await selectImageFromGallery(context);
+                              setState(() {
+                                selectImage = pickedImage;
+                              });
+                            },
+                            icon: const Icon(Icons.add_a_photo),
+                          )
+                        : null,
+                  ),
                   const SizedBox(
                     height: 30,
                   ),
@@ -54,7 +79,7 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                           color: Colors.red,
                         ),
                       ),
-                      labelText: 'Titile of the Story',
+                      labelText: 'Word',
                     ),
                   ),
                   const SizedBox(
@@ -69,7 +94,7 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                             dropdown = newValue!;
                           });
                         },
-                        items: storyndcartoon.map<DropdownMenuItem<String>>(
+                        items: categories.map<DropdownMenuItem<String>>(
                           (List<String> value) {
                             return DropdownMenuItem<String>(
                               value: value[0],
@@ -80,7 +105,9 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                       ),
                       IconButton(
                         icon: const Icon(Icons.add),
-                        onPressed: () {},
+                        onPressed: () {
+                          _addNewCategory();
+                        },
                       ),
                     ],
                   ),
@@ -95,13 +122,13 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                           final pickedImage =
                               await selectImageFromGallery(context);
                           setState(() {
-                            storyImages = pickedImage;
+                            alphabetImages = pickedImage;
                           });
                         },
                         child: CircleAvatar(
                           radius: 100,
-                          backgroundImage: storyImages != null
-                              ? FileImage(storyImages!)
+                          backgroundImage: alphabetImages != null
+                              ? FileImage(alphabetImages!)
                               : null,
                         ),
                       ),
@@ -125,25 +152,27 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                       backgroundColor: MaterialStateProperty.all(Colors.red),
                     ),
                     onPressed: () async {
-                      if (storyImages != null && audiofilePath != null) {
-                        final details = StoryModel(
-                          storyUrl: storyImages!.path.toString(),
+                      if (selectImage != null &&
+                          alphabetImages != null &&
+                          audiofilePath != null) {
+                        final details = WordsForKids(
+                          alphabets: alphabetImages!.path.toString(),
                           words: wordsController.text,
+                          imageUrl: selectImage!.path.toString(),
                           audioFile: audiofilePath!,
                           list: dropdown,
-                          videoplayer: '',
                         );
-                        await addstory(details);
+                        await addAlphabet(details);
+                        // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                            builder: (context) => const StoryDisplay(),
+                            builder: (context) => const AlphabetDisplay(),
                           ),
                           (route) => false,
                         );
                       } else {
                         print('error ');
-                        print(storyImages!.path);
-                        // print(audiofilePath!);
+                        print(selectImage!.path);
                         print(wordsController.text);
                       }
                     },
@@ -162,30 +191,40 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
       ),
     );
   }
+  void _addNewCategory() {
+    String newCategory = '';
 
-  Future<String> pickAndPlayAudio(BuildContext context) async {
-    FilePickerResult? result =
-        await FilePicker.platform.pickFiles(type: FileType.audio);
-
-    if (result != null && result.files.isNotEmpty) {
-      String? filePath = result.files.single.path;
-      if (filePath != null) {
-        return filePath;
-      }
-    }
-
-    return '';
-  }
-
-  Future<File?> selectImageFromGallery(BuildContext context) async {
-    File? image;
-    try {
-      final pickedImage =
-          await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (pickedImage != null) {
-        image = File(pickedImage.path);
-      }
-    } catch (e) {}
-    return image;
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Add New Category'),
+          content: TextField(
+            onChanged: (value) {
+              newCategory = value;
+            },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                if (newCategory.isNotEmpty) {
+                  setState(() {
+                    categories.add([newCategory]);
+                  });
+                  Navigator.of(context).pop();
+                } else {}
+              },
+              child: const Text('Add'),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

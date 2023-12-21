@@ -2,10 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_stories.dart';
 import 'package:kidsland/model/storie_model.dart';
-import 'package:kidsland/screen/admin/admincategory_ist.dart';
-import 'package:kidsland/screen/introscreens/logosreen.dart';
-import 'package:kidsland/screen/admin/adminstordetails.dart';
-import 'package:kidsland/screen/admin/adminstoryscreen.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/admincategory_ist.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminstordetails.dart';
+import 'package:kidsland/screen/admin/adminalphabet/pages/adminstoryscreen.dart';
 
 class StoryDisplay extends StatefulWidget {
   const StoryDisplay({super.key});
