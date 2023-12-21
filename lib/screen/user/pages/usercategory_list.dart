@@ -141,7 +141,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                         category: categoryNames,
                                       )));
                             },
-                            child: StoryImageWidget(imagePaths: imagePaths, categoryNames: categoryNames),
+                            child: StoryImageWidget(
+                                imagePaths: imagePaths,
+                                categoryNames: categoryNames),
                           );
                         },
                       ),
