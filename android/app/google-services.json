@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "131885008190",
+    "project_id": "kids-land-51e98",
+    "storage_bucket": "kids-land-51e98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131885008190:android:9d2e15ffbc022faf3bd86f",
+        "android_client_info": {
+          "package_name": "com.example.kidsland"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMaXaiy2v1lKWESHAF1kETaOhZUlYfv2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

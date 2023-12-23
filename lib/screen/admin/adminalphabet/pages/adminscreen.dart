@@ -1,10 +1,12 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/screen/admin/adminalphabet/functions/functionsofadmin.dart';
 import 'package:kidsland/screen/admin/adminalphabet/pages/adminalphabet_display.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:kidsland/services/databaseservice.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({Key? key});
@@ -162,7 +164,10 @@ class _AdminScreenState extends State<AdminScreen> {
                           audioFile: audiofilePath!,
                           list: dropdown,
                         );
-                        await addAlphabet(details);
+                        DatabaseServices(
+                                adminid: FirebaseAuth.instance.currentUser!.uid)
+                            .updateAdminData(details);
+                        // await addAlphabet(details);
                         // ignore: use_build_context_synchronously
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
@@ -191,6 +196,7 @@ class _AdminScreenState extends State<AdminScreen> {
       ),
     );
   }
+
   void _addNewCategory() {
     String newCategory = '';
 

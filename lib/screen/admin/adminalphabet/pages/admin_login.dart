@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kidsland/screen/admin/adminalphabet/pages/admincategory_ist.dart';
+import 'package:kidsland/services/authentication.dart';
 import 'package:kidsland/widget/constants.dart';
 
 class AdminLogin extends StatefulWidget {
@@ -77,20 +80,34 @@ class _AdminLoginState extends State<AdminLogin> {
                       if (_formFieldKey.currentState!.validate()) {
                         if (emailController.text == 'sumayyats429@gmail.com' &&
                             passwordController.text == 'mi@123') {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Successful'),
+                          final value =await AuthService()
+                              .registerAdminWithEmailandPassword(
+                                  emailController.text.trim(),
+                                  passwordController.text.trim());
+                          if (value == true) {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CategoryList(),
+                              ),
+                              (route) => false,
+                            );
+                          } else if (value == false) {
+                            final value= AuthService().login(emailController.text.trim(),
+                                  passwordController.text.trim());
+                                  Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CategoryList(),
+                              ),
+                              (route) => false,
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                             SnackBar(
+                              content: Text(value.toString()),backgroundColor: Colors.red,
                             ),
-                          );
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CategoryList(),
-                            ),
-                            (route) => false,
-                          );
-                          emailController.clear();
-                          passwordController.clear();
+                          );}
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(

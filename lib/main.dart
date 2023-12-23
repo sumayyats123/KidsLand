@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/model/storie_model.dart';
@@ -9,6 +10,8 @@ import 'package:kidsland/database/functions/sharedpreference.dart';
 
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await Hive.initFlutter();
   Hive.registerAdapter(WordsForKidsAdapter());
   Hive.registerAdapter(StoryModelAdapter());
