@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
@@ -78,8 +77,8 @@ class _AbcScreenState extends State<AbcScreen> {
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15.0),
-                      child: Image.file(
-                        File(data[index].imageUrl),
+                      child: Image.network(
+                        data[index].alphabets,
                         fit: BoxFit.cover,
                       ),
                     ),

@@ -130,7 +130,7 @@ class _AdminStoryScreenState extends State<AdminStoryScreen> {
                           words: wordsController.text,
                           audioFile: audiofilePath!,
                           list: dropdown,
-                          videoplayer: '',
+                      
                         );
                         await addstory(details);
                         // ignore: use_build_context_synchronously

@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/screen/admin/adminalphabet/functions/functionsofadmin.dart';
 import 'package:kidsland/screen/admin/adminalphabet/pages/adminalphabet_display.dart';

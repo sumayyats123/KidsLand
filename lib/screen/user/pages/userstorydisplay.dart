@@ -77,8 +77,8 @@ class _UserStoryDisplayState extends State<UserStoryDisplay> {
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15.0),
-                          child: Image.file(
-                            File(data[index].storyUrl),
+                          child: Image.network(
+                            (data[index].storyUrl),
                             fit: BoxFit.cover,
                           ),
                         ),

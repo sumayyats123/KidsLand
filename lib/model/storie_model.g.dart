@@ -20,7 +20,6 @@ class StoryModelAdapter extends TypeAdapter<StoryModel> {
       storyUrl: fields[0] as String,
       words: fields[1] as String,
       audioFile: fields[2] as String,
-      videoplayer: fields[3] as String,
       list: fields[4] as String,
     );
   }
@@ -37,8 +36,8 @@ class StoryModelAdapter extends TypeAdapter<StoryModel> {
       ..write(obj.audioFile)
       ..writeByte(4)
       ..write(obj.list)
-      ..writeByte(3)
-      ..write(obj.videoplayer);
+      ..writeByte(3);
+     
   }
 
   @override

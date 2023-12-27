@@ -1,4 +1,4 @@
-import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:kidsland/model/storie_model.dart';
@@ -72,8 +72,8 @@ audioplayer.onPositionChanged.listen((p) {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.file(
-                    File(widget.storyforkids.storyUrl), 
+                  child: Image.network(
+                    widget.storyforkids.storyUrl, 
                     width: double.infinity,
                     height: 500,
                     fit: BoxFit.cover,

@@ -118,7 +118,7 @@ class _StoryDetailsState extends State<StoryDetails> {
                           storyUrl: selectedImage!.path,
                           audioFile: audioFilePath!,
                           list: _listController.text,
-                          videoplayer: '',
+                         
                         );
 
                         int key = getkeyofupdatestory(widget.storyDetails);
@@ -167,7 +167,7 @@ class _StoryDetailsState extends State<StoryDetails> {
       storyUrl: selectedImage!.path,
       audioFile: audioFilePath!,
       list: _listController.text,
-      videoplayer: '',
+     
     );
     int key = getkeyofupdatestory(widget.storyDetails);
     await updatestory(updatestoryData, key);

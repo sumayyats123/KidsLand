@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kidsland/constants/constants.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/model/storie_model.dart';
 import 'package:kidsland/screen/user/pages/usercategory_list.dart';
@@ -11,10 +13,18 @@ import 'package:kidsland/database/functions/sharedpreference.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+ 
   await Firebase.initializeApp();
   await Hive.initFlutter();
   Hive.registerAdapter(WordsForKidsAdapter());
   Hive.registerAdapter(StoryModelAdapter());
+   addDataInitially();
+   addDataInitially2();
+     SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   runApp(const MyApp());
 }
 

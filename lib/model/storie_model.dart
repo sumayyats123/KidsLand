@@ -18,8 +18,7 @@ class StoryModel{
  final String list;
 
 
- @HiveField(3)
- final String videoplayer;
+
 
 
 StoryModel({
@@ -27,7 +26,6 @@ StoryModel({
 required this.words,
 
 required this.audioFile,
-required this.videoplayer,
 required this.list
 });
 }

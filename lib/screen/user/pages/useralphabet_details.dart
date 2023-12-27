@@ -1,4 +1,4 @@
-import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:kidsland/model/alphabets_model.dart';
@@ -57,7 +57,7 @@ final audioplayer = AudioPlayer();
                   height:200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: FileImage(File(widget.wordsforkids.imageUrl)),
+                      image:NetworkImage (widget.wordsforkids.alphabets),
                     ),
                   ),
                 ),
@@ -73,7 +73,7 @@ final audioplayer = AudioPlayer();
                   height:300,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: FileImage(File(widget.wordsforkids.alphabets)),
+                      image:NetworkImage (widget.wordsforkids.imageUrl),
                     ),
                   ),
                 ),
