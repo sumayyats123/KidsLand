@@ -20,7 +20,7 @@ void main() async {
   Hive.registerAdapter(StoryModelAdapter());
    addDataInitially();
    addDataInitially2();
-     SystemChrome.setPreferredOrientations([
+    SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);

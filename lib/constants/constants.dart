@@ -8,7 +8,7 @@ final List<Map<String, dynamic>> Data = [
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Alphabet%20image%2FA.png?alt=media&token=adc6acd8-4532-465d-8b7d-a01bb028977d",
     "words": "Apple",
     "imageUrl":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Alphabet%20image%2FA.png?alt=media&token=adc6acd8-4532-465d-8b7d-a01bb028977d",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Alphabet%20image%2FApple.png?alt=media&token=710d2246-7302-4af4-aeaf-14bea5d1898b",
     "audioFile":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Alphabet%20image%2FA%20FOR%20APPLE.mp3?alt=media&token=83393c9d-7743-45a4-b79b-89e1057ead75",
     "list": "Alphabets",
@@ -23,7 +23,8 @@ final List<Map<String, dynamic>> Data = [
     "audioFile":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Alphabet%20image%2FB%20FOR%20BALL%20(1).mp3?alt=media&token=c7d08715-6708-4d6e-9aa1-ccff1b19b482",
     "list": "Alphabets",
-  }
+  },
+  
 ];
 
 Future<void> addDataInitially() async {
@@ -44,7 +45,7 @@ Future<void> addDataInitially() async {
 }
 
 
-final List<Map<String, dynamic>> Datas = [
+final List<Map<String, dynamic>> datas = [
   {
     "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Alphabet%20image%2FGOAT.png?alt=media&token=7043cfa8-0350-42f3-aa5a-440f5269b338',
      "words"   :'Goat',
@@ -53,12 +54,13 @@ final List<Map<String, dynamic>> Datas = [
        },
 ];
 
-Future<void>addDataInitially2()async{
-  final db2 =await Hive.openBox<StoryModel>('story'); 
+Future<void>addDataInitially2() async {
+  final db2 =await Hive.openBox<StoryModel>('story');
   if(db2.isEmpty){
+   
     // ignore: non_constant_identifier_names
-    for(var Map in Datas){
-      final model = StoryModel(
+    for(var Map in datas){
+      final model= StoryModel(
       storyUrl: Map['storyUrl'],
       words: Map['words'],
       audioFile: Map['audioFile'],

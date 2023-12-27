@@ -20,24 +20,22 @@ class StoryModelAdapter extends TypeAdapter<StoryModel> {
       storyUrl: fields[0] as String,
       words: fields[1] as String,
       audioFile: fields[2] as String,
-      list: fields[4] as String,
+      list: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, StoryModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.storyUrl)
       ..writeByte(1)
       ..write(obj.words)
       ..writeByte(2)
       ..write(obj.audioFile)
-      ..writeByte(4)
-      ..write(obj.list)
-      ..writeByte(3);
-     
+      ..writeByte(3)
+      ..write(obj.list);
   }
 
   @override
