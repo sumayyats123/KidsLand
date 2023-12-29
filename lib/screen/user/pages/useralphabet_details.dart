@@ -44,8 +44,8 @@ final audioplayer = AudioPlayer();
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color.fromARGB(255, 36, 228, 202),
-                Color.fromARGB(255, 255, 148, 244),
+                Color.fromARGB(185, 244, 245, 244),
+                Color.fromARGB(255, 70, 129, 109),
               ]
              )
             ),

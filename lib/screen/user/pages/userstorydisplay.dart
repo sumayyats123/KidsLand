@@ -25,7 +25,8 @@ class _UserStoryDisplayState extends State<UserStoryDisplay> {
   Future<List<StoryModel>> fetchDatas() async {
     final box = await Hive.openBox<StoryModel>('story');
     return box.values
-        .where((story) => story.list.toLowerCase() == widget.category.toLowerCase())
+        .where((story) =>
+            story.list.toLowerCase() == widget.category.toLowerCase())
         .toList();
   }
 
@@ -37,42 +38,59 @@ class _UserStoryDisplayState extends State<UserStoryDisplay> {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            title: const Text("Let's Entertain"), 
-            centerTitle: true,
-             backgroundColor: const Color.fromRGBO(221, 7, 175, 1),
+        appBar: AppBar(
+          title: const Text(
+            "Let's Entertine",
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold,
+                fontSize: 30),
           ),
-          body: RefreshIndicator(
-            onRefresh: _refreshData,
-            child: FutureBuilder(
-              future: _futureData,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(child: Text("Error: ${snapshot.error}"));
-                } else if (snapshot.data!.isEmpty) {
-                  return const Center(child: Text("There is no data available"));
-                }
-      
-                List<StoryModel> data = snapshot.data as List<StoryModel>;
-      
-                return Padding(
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 26, 110, 93),
+        ),
+        body: RefreshIndicator(
+          onRefresh: _refreshData,
+          child: FutureBuilder(
+            future: _futureData,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text("Error: ${snapshot.error}"));
+              } else if (snapshot.data!.isEmpty) {
+                return const Center(child: Text("There is no data available"));
+              }
+
+              List<StoryModel> data = snapshot.data as List<StoryModel>;
+
+              return Container(
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                      Color.fromARGB(185, 244, 245, 244),
+                      Color.fromARGB(255, 70, 129, 109),
+                    ])),
+                child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
                       childAspectRatio: 1 / 0.90,
-                      crossAxisSpacing: 15,
-                      mainAxisSpacing: 15,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
                     ),
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => StoryDetails(storyforkids: data[index]),
+                            builder: (context) =>
+                                StoryDetails(storyforkids: data[index]),
                           ));
                         },
                         child: ClipRRect(
@@ -86,10 +104,11 @@ class _UserStoryDisplayState extends State<UserStoryDisplay> {
                     },
                     itemCount: data.length,
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
+        ),
       ),
     );
   }

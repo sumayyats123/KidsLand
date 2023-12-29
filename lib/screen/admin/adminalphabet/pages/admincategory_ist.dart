@@ -20,10 +20,11 @@ class _CategoryListState extends State<CategoryList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+         backgroundColor: const Color.fromARGB(255, 152, 238, 243),
         appBar: AppBar(
           title: texteditingcontroller.textEdit(text: 'Add Datas', fsize: 30),
           centerTitle: true,
-          backgroundColor: const Color.fromRGBO(221, 7, 175, 1),
+           backgroundColor: const Color.fromARGB(255, 26, 110, 93),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,

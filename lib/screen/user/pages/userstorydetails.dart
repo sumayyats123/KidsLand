@@ -64,6 +64,7 @@ audioplayer.onPositionChanged.listen((p) {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+         backgroundColor: const Color.fromARGB(255, 152, 238, 243),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

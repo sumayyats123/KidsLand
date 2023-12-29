@@ -36,6 +36,7 @@ class _AdminScreenState extends State<AdminScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+         backgroundColor: const Color.fromARGB(255, 152, 238, 243),
         body: Padding(
           padding: const EdgeInsets.all(25.0),
           child: SingleChildScrollView(

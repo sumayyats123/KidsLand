@@ -13,7 +13,7 @@ class LogoScreen
   Widget build(BuildContext context) {
     final size =MediaQuery.of(context).size;
     return SafeArea(
-      child: Scaffold(backgroundColor: const Color.fromARGB(255, 196, 39, 228),
+      child: Scaffold(backgroundColor: Color.fromARGB(255, 5, 166, 174),
         body: Column(mainAxisAlignment: MainAxisAlignment.center,
           children: [Image.asset("assets/images/hikids.png"),
             Image.asset("assets/images/logo1final.png",width: size.width ,),

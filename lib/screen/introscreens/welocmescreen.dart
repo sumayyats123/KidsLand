@@ -20,6 +20,7 @@ class _WelcomescreenState extends State<Welcomescreen> {
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 152, 238, 243),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -95,7 +96,7 @@ class _WelcomescreenState extends State<Welcomescreen> {
                         radius: 40,
                         backgroundColor: Colors.red,
                         child: Icon(
-                          Icons.home,
+                          Icons.forward,
                           size: 30,
                         ),
                       ),

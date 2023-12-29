@@ -27,6 +27,7 @@ class _AdminLoginState extends State<AdminLogin> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: const Color.fromARGB(255, 152, 238, 243),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Form(

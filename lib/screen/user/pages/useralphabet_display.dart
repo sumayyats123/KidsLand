@@ -1,13 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:kidsland/database/functions/db_alphabetfunctions.dart';
 import 'package:kidsland/model/alphabets_model.dart';
 import 'package:kidsland/screen/user/pages/useralphabet_details.dart';
+
 // ignore: must_be_immutable
 class AbcScreen extends StatefulWidget {
   AbcScreen({super.key, required this.category});
   String category;
-  
+
   @override
   State<AbcScreen> createState() => _AbcScreenState();
 }
@@ -30,11 +30,16 @@ class _AbcScreenState extends State<AbcScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar( 
-          title: const Text("Starts  Learn",style: TextStyle(fontFamily:'Poppins',fontWeight: FontWeight.bold,fontSize:30 ),),
+        appBar: AppBar(
+          title: const Text(
+            "Starts  Learn",
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold,
+                fontSize: 30),
+          ),
           centerTitle: true,
-          backgroundColor: const Color.fromARGB(255, 226, 7, 223),
-    
+          backgroundColor: const Color.fromARGB(255, 26, 110, 93),
         ),
         body: FutureBuilder(
           future: fetchData(),
@@ -46,20 +51,18 @@ class _AbcScreenState extends State<AbcScreen> {
             } else if (snapshot.data!.isEmpty) {
               return const Center(child: Text("There is no data available"));
             }
-    
+
             List<WordsForKids> data = snapshot.data!;
-    
+
             return Container(
-               decoration: const BoxDecoration(
-             gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 36, 228, 202),
-                Color.fromARGB(255, 255, 148, 244), 
-            ]
-             )
-            ),
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                    Color.fromARGB(185, 244, 245, 244),
+                    Color.fromARGB(255, 70, 129, 109),
+                  ])),
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

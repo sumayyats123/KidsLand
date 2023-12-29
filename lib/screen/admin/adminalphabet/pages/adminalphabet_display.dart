@@ -34,10 +34,11 @@ class _AlphabetDisplayState extends State<AlphabetDisplay> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: const Color.fromARGB(255, 152, 238, 243),
         appBar: AppBar(
           title:
               texteditingcontroller.textEdit(text: 'Alphabet Model', fsize: 30),
-          backgroundColor: const Color.fromRGBO(221, 7, 175, 1),
+           backgroundColor: const Color.fromARGB(255, 26, 110, 93),
           centerTitle: true,
           actions: const [
             Icon(Icons.text_rotation_none_outlined),

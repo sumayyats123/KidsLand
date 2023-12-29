@@ -33,12 +33,13 @@ class _StoryDisplayState extends State<StoryDisplay> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: const Color.fromARGB(255, 152, 238, 243),
         appBar: AppBar(
           title: const Text(
             'Story',
             style: TextStyle(fontSize: 25),
           ),
-          backgroundColor: Colors.red,
+            backgroundColor: const Color.fromARGB(255, 26, 110, 93),
           centerTitle: true,
           actions: const [
             Icon(Icons.text_rotation_none_outlined),

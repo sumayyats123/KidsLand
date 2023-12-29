@@ -38,7 +38,7 @@ class _DashboardPageState extends State<DashboardPage> {
             style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-          backgroundColor: const Color.fromRGBO(221, 7, 175, 1),
+         backgroundColor: const Color.fromARGB(255, 0, 165, 132),
           actions: [
             IconButton(
               onPressed: () {
@@ -54,8 +54,8 @@ class _DashboardPageState extends State<DashboardPage> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                Color.fromARGB(255, 36, 228, 202),
-                Color.fromARGB(255, 255, 148, 244),
+                 Color.fromARGB(185, 244, 245, 244),
+                Color.fromARGB(255, 70, 129, 109),
               ])),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
