@@ -357,7 +357,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Fcircle%20shape.png?alt=media&token=951b2d91-71f3-4ad9-a470-cbbc300f1bac",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FCIRCLE.png?alt=media&token=bf43a508-f21d-4c8d-b5af-7e7e246bd9d3",
     "words": "Circle",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Fcircle.png?alt=media&token=e27f957b-d4a9-4b69-963a-1cd7ca7657b2",
@@ -367,7 +367,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FTriangle%20shape.png?alt=media&token=088ca5d3-cc65-499d-8687-fbb5bdc7d6f5",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FTRIANGLES.png?alt=media&token=629cd374-24fb-4487-b39a-772bb9ec6dab",
     "words": "Triangle",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Ftriangle.png?alt=media&token=2298d0ee-772a-4b53-b01d-a6ef8a0882fa",
@@ -377,7 +377,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Fsquare%20shape.png?alt=media&token=6e09a4bc-f4e8-4523-a016-ccda6d3b121d",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FSQUARES.png?alt=media&token=ce751974-313b-447c-96e5-b042c87203a4",
     "words": "Square",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Fsquare.png?alt=media&token=b1bc3e0e-a7e2-40a9-a9bf-0b006891ec21",
@@ -387,7 +387,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FRectangle%20shape.png?alt=media&token=4fc7120e-c93e-4826-ae16-cf497764c111",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FRECTANGLES.png?alt=media&token=ad945a96-40e9-4f86-a882-75856cf65091",
     "words": "Rectangle",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Frectangle.png?alt=media&token=b6035da7-bcf4-4d49-bc7d-8a4fdaf54d68",
@@ -397,18 +397,27 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FSTAR%20shape.png?alt=media&token=52e0c33d-d07a-427d-b8d1-a4464f40b69b",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FSTARS.png?alt=media&token=fc173973-9d8d-44fe-bd5c-7d887265f86e",
     "words": "Star",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Fstar.png?alt=media&token=be2238e0-258c-4f42-a625-2729f8638d56",
     "audioFile":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Fstar.mp3?alt=media&token=40a1c774-be76-4fb9-b294-13577bcf980b",
     "list": "Shapes",
+  },  {
+    "alphabets":
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2FOVAL.png?alt=media&token=8afbc3d3-a801-40e9-8095-fcaadf18ff9a",
+    "words": "Oval",
+    "imageUrl":
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Foval.png?alt=media&token=e90c0fad-0a3d-4e98-8141-3c8b6de6c67a",
+    "audioFile":
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Shapes%2Foval.mp3?alt=media&token=bdec1a7e-e520-48b7-956f-e397de9b7ccd",
+    "list": "Shapes",
   }, 
   
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fbluecol.png?alt=media&token=984d9853-c245-4304-a3ce-2fbd8625b0df",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fblue.png?alt=media&token=fa799990-d4be-4d1b-89c3-b9ba1151b37b",
     "words": "Blue",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fbluekid.png?alt=media&token=a531108b-d6d9-4fe7-851e-70f82403685f",
@@ -418,7 +427,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fgreencol.png?alt=media&token=b8e5a945-b915-4a72-a2b0-75553c933849",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fgreen.png?alt=media&token=303339f3-8257-44b8-835c-9f375c3ae52a",
     "words": "Green",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fgreen%20kid.png?alt=media&token=46fc8a85-dd95-4fa4-aafd-450b34f4db8a",
@@ -428,7 +437,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Forangecol.png?alt=media&token=6a9adc54-d3df-4562-990d-9b1a765a8527",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Forange.png?alt=media&token=be43f670-8678-432c-9f00-211db56f6d4a",
     "words": "Orange",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Forangekid.png?alt=media&token=9f396c40-175d-4fc1-b1e9-430c0260d183",
@@ -438,7 +447,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fpincol.png?alt=media&token=457f90a9-8e5c-43f3-891a-6d9b294f73c1",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fpink.png?alt=media&token=2d3cf5ca-3a1c-4b34-81a6-58888b339d56",
     "words": "Pink",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fpinkkid.png?alt=media&token=807aff2f-4ea7-4456-9659-b86a982e7a73",
@@ -448,7 +457,7 @@ final List<Map<String, dynamic>> Data = [
   }, 
   {
     "alphabets":
-        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fredcol.png?alt=media&token=3e408e88-e8ac-4d51-a5c2-ae9c435604ba",
+        "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fred.png?alt=media&token=5233c7a5-c3b8-425f-85e6-e9fc193f41d7",
     "words":"Red",
     "imageUrl":
         "https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Colors%2Fredkid.png?alt=media&token=a42b2501-b18f-4968-84e2-7068d6d158aa",
@@ -568,37 +577,37 @@ Future<void> addDataInitially() async {
 
 final List<Map<String, dynamic>> datas = [
    {
-    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2FElephant%20and%20friends.png?alt=media&token=12aa10e2-bdd1-4ae2-8c1f-23ba8969e46b',
+    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2Felphant%20and%20friends.png?alt=media&token=8ffb48b1-e9b9-4e3a-b331-ea708106ef94',
      "words"   :'The Elephant And Friends',
      "audioFile":"https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2FElephant%20and%20Friends%20Story%20for%20Kids%20%20Moral%20Story's%20for%20Children's%20in%20English.mp3?alt=media&token=47c3dbdd-7169-433b-8113-7d5f470c659c",
      "list":'Story',
   },
   {
-    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2FFOX%20AND%20GRAPES.png?alt=media&token=0430534b-ff73-4009-9c18-6da7c1ffd853',
+    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2FThe%20lion%20and%20grapes.png?alt=media&token=51ab4d52-6566-43be-8877-0d7f19af28b4',
      "words"   :'The Fox And The Grapes',
      "audioFile":"https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2FThe%20Fox%20and%20The%20Grapes%20-%20Story%20for%20kids.mp3?alt=media&token=a3af06eb-4230-4521-9afd-e319ac7034f3",
      "list":'Story',
    },
     {
-    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2Fmouse%20and%20lion.png?alt=media&token=e10a708b-a2e8-4fd1-a687-c50e472cbaa0',
+    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2FThe%20Lion%20and%20the%20mouse.png?alt=media&token=ae1a0a14-ffdf-45e9-b53b-d19fac1083bf',
      "words"   :'The Lion And The Mouse',
      "audioFile":"https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/story%2FThe%20Lion%20and%20The%20Mouse%20%20Galaxy%20Rhymes%20%26%20Stories%20%20Level%20B.mp3?alt=media&token=9ee1fcdf-46a5-414a-bb6a-72f8689d00d4",
      "list":'Story',
     },
    {
-    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2FAbc.png?alt=media&token=159dff53-6225-4540-889f-60e8ce55134e',
+    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2FABC%20sONG.png?alt=media&token=2d10e9c6-2181-49a6-914a-072e6a815a72',
      "words"   :'ABC Song',
      "audioFile":"https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2FABC%20Song%20%20Learn%20Alphabets%20%20A%20To%20Z%20Nursery%20Rhymes%20%20Baby%20Songs%20Kids%20WooHoo%20Rhymes.mp3?alt=media&token=eea529f0-d9a7-4fdf-8ec0-917239f0e430",
      "list":'Rhymes',
        },
         {
-    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2Fclapyourhand.png?alt=media&token=250c57b3-672b-486d-b6bb-3d5e22c42aa7',
+    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2Fclap%20your%20hands.png?alt=media&token=02ac892a-e234-4c23-8e49-111eea4e18d1',
      "words"   :'Clap Your Hands',
      "audioFile":"https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2FClap%20Your%20Hands%20with%20Lyrics%20%20Popular%20English%20Nursery%20Rhymes%20for%20Kids.mp3?alt=media&token=ba24099e-67e2-4a60-8385-cc17b647e2b5",
      "list":'Rhymes',
        },
         {
-    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2Fdingdongbell.png?alt=media&token=eee651e5-1c4a-4fda-b7f6-bb4126c0950b',
+    "storyUrl":'https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2FDING%20DONG%20BELL.png?alt=media&token=41001fec-332d-4968-a6db-728085d7045d',
      "words"   :'Ding Dong Bells',
      "audioFile":"https://firebasestorage.googleapis.com/v0/b/kids-land-51e98.appspot.com/o/Rhymes%2FDing%20Dong%20Bell%20Nursery%20Rhyme%20I%20Ding%20Dong%20Bell%20I%20Lkg%20Rhymes%20English%20I%20Nursery%20Rhymes%20For%20Children.mp3?alt=media&token=11c354c9-d091-403e-8955-7dfafbf98748",
      "list":'Rhymes',
